@@ -23,7 +23,7 @@ module.exports = function (db) {
       const newItem = {
         name: req.body.name,
         description: req.body.description,
-        UserId: 1 // req.session.passport.user.id
+        UserId: req.session.passport.user.id
       };
 
       db.Item.create(newItem)
