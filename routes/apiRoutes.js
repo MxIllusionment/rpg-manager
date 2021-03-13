@@ -32,10 +32,10 @@ module.exports = (passport, db) => {
   // router.put('/characters/:characterId/inventory/:itemId', AppController.updateQuantity);
 
   // Item Routes
-  router.get('/itemlist', ItemController.getItems);
-  router.post('/itemlist', ItemController.createItem);
-  router.delete('/itemlist/:itemId', ItemController.deleteItem);
-  router.put('/itemlist/:itemId', ItemController.updateItem);
+  router.get('/items', ItemController.getItems);
+  router.post('/items', ItemController.createItem);
+  router.delete('/items/:itemId', ItemController.deleteItem);
+  router.put('/items/:itemId', ItemController.updateItem);
 
   return router;
 };
