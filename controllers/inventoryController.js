@@ -42,26 +42,15 @@ module.exports = function (db) {
 
     // Update the quantity of an item in a character's inventory
     updateQuantity: (req, res) => {
-      const charFilter = {
+      const invFilter = {
         where: {
-          id: req.params.characterId
+          CharacterId: req.params.characterId,
+          ItemId: req.params.itemId
         }
       };
 
-      const itemFilter = {
-        where: {
-          id: req.params.itemId
-        }
-      };
-
-      db.Character.findOne(charFilter)
-        .then(char => char.getItems(itemFilter))
-        .then(items => {
-          items[0].Inventory.quantity = req.body.quantity;
-          return items[0].Inventory.save();
-        })
+      db.Inventory.update({ quantity: req.body.quantity }, invFilter)
         .then(data => res.json(data));
     }
-
   };
 };
