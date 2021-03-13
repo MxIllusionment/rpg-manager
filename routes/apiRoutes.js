@@ -5,6 +5,7 @@ module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
   const CharController = require('../controllers/charController')(db);
+  const ItemController = require('../controllers/itemController')(db);
 
   // Authentication
   router.post('/register', AuthController.register);
@@ -30,11 +31,11 @@ module.exports = (passport, db) => {
   // router.delete('/characters/:characterId/inventory/:itemId', AppController.deleteInvItem);
   // router.put('/characters/:characterId/inventory/:itemId', AppController.updateQuantity);
 
-  // // Item Routes
-  // router.get('/itemlist', AppController.getItems);
-  // router.post('/itemlist', AppController.createItems);
-  // router.delete('/itemlist/:itemId', AppController.deleteItems);
-  // router.put('/itemlist/:itemId', AppController.updateItems);
+  // Item Routes
+  router.get('/itemlist', ItemController.getItems);
+  router.post('/itemlist', ItemController.createItem);
+  router.delete('/itemlist/:itemId', ItemController.deleteItem);
+  router.put('/itemlist/:itemId', ItemController.updateItem);
 
   return router;
 };
