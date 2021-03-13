@@ -4,6 +4,7 @@ const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
   const AppController = require('../controllers/appController')(db);
+  const CharController = require('../controllers/charController')(db);
 
   // Authentication
   router.post('/register', AuthController.register);
@@ -13,10 +14,27 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
-  // App
   router.get('/examples', AppController.getExamples);
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
+
+  // Character Routes
+  router.get('/characters', CharController.getCharacters);
+  router.post('/characters', CharController.createCharacter);
+  router.delete('/characters/:id', CharController.deleteCharacter);
+  router.put('/characters/:id', CharController.updateCharacter);
+
+  // // Inventory Route
+  // router.get('/characters/:characterId/inventory', AppController.getInventory);
+  // router.post('/characters/:characterId/inventory', AppController.addInvItem);
+  // router.delete('/characters/:characterId/inventory/:itemId', AppController.deleteInvItem);
+  // router.put('/characters/:characterId/inventory/:itemId', AppController.updateQuantity);
+
+  // // Item Routes
+  // router.get('/itemlist', AppController.getItems);
+  // router.post('/itemlist', AppController.createItems);
+  // router.delete('/itemlist/:itemId', AppController.deleteItems);
+  // router.put('/itemlist/:itemId', AppController.updateItems);
 
   return router;
 };
