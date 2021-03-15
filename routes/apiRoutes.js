@@ -6,6 +6,7 @@ module.exports = (passport, db) => {
   const AppController = require('../controllers/appController')(db);
   const CharController = require('../controllers/charController')(db);
   const ItemController = require('../controllers/itemController')(db);
+  const inventoryController = require('../controllers/inventoryController')(db);
 
   // Authentication
   router.post('/register', AuthController.register);
@@ -25,11 +26,11 @@ module.exports = (passport, db) => {
   router.delete('/characters/:id', CharController.deleteCharacter);
   router.put('/characters/:id', CharController.updateCharacter);
 
-  // // Inventory Route
-  // router.get('/characters/:characterId/inventory', AppController.getInventory);
-  // router.post('/characters/:characterId/inventory', AppController.addInvItem);
-  // router.delete('/characters/:characterId/inventory/:itemId', AppController.deleteInvItem);
-  // router.put('/characters/:characterId/inventory/:itemId', AppController.updateQuantity);
+  // Inventory Route
+  router.get('/characters/:characterId/inventory', inventoryController.getInventory);
+  router.post('/characters/:characterId/inventory', inventoryController.addInvItem);
+  router.delete('/characters/:characterId/inventory/:itemId', inventoryController.deleteInvItem);
+  router.put('/characters/:characterId/inventory/:itemId', inventoryController.updateQuantity);
 
   // Item Routes
   router.get('/items', ItemController.getItems);
