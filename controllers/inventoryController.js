@@ -36,7 +36,7 @@ module.exports = function (db) {
       };
 
       db.Character.findOne(filter)
-        .then(char => char.removeItem(req.params.id))
+        .then(char => char.removeItem(req.params.itemId))
         .then(data => res.json(data));
     },
 
