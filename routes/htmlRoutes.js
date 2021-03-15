@@ -57,14 +57,14 @@ module.exports = (db) => {
   });
 
   // Load example index page
-  router.get('/example', function (req, res) {
+  router.get('/character-list', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
-        res.render('example', {
+      db.Character.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbCharacter) {
+        res.render('character-list', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
           msg: 'Welcome!',
-          examples: dbExamples
+          examples: dbCharacter
         });
       });
     } else {
@@ -73,13 +73,13 @@ module.exports = (db) => {
   });
 
   // Load example page and pass in an example by id
-  router.get('/example/:id', function (req, res) {
+  router.get('/character-list/:id', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbExample) {
-        res.render('example-detail', {
+      db.Character.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbCharacter) {
+        res.render('detail', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
-          example: dbExample
+          example: dbCharacter
         });
       });
     } else {
