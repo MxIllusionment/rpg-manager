@@ -25,11 +25,11 @@ module.exports = (passport, db) => {
   router.delete('/characters/:id', CharController.deleteCharacter);
   router.put('/characters/:id', CharController.updateCharacter);
 
-  // // Inventory Route
-  // router.get('/characters/:characterId/inventory', AppController.getInventory);
-  // router.post('/characters/:characterId/inventory', AppController.addInvItem);
-  // router.delete('/characters/:characterId/inventory/:itemId', AppController.deleteInvItem);
-  // router.put('/characters/:characterId/inventory/:itemId', AppController.updateQuantity);
+  // Inventory Route
+  router.get('/characters/:characterId/inventory', AppController.getInventory);
+  router.post('/characters/:characterId/inventory', AppController.addInvItem);
+  router.delete('/characters/:characterId/inventory/:itemId', AppController.deleteInvItem);
+  router.put('/characters/:characterId/inventory/:itemId', AppController.updateQuantity);
 
   // Item Routes
   router.get('/items', ItemController.getItems);
