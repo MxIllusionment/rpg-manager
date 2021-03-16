@@ -39,6 +39,7 @@ const refreshCharacterList = function () {
     characterList.append(characters);
 
     $('.character-btn').click(function () {
+      $('.character-btn').removeClass('selected-char-btn');
       $(this).addClass('selected-char-btn');
       selectCharacter($(this).attr('data-index'));
     });
