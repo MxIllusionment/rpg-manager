@@ -37,51 +37,20 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('dashboard', user);
+      res.render('character-list', user);
     } else {
       res.render('dashboard');
     }
   });
 
-  // Load dashboard page
-  router.get('/dashboard', (req, res) => {
+  // Load character list page
+  router.get('/character-list', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('dashboard', user);
-    } else {
-      res.render('dashboard');
-    }
-  });
-
-  // Load example index page
-  router.get('/character-list', function (req, res) {
-    if (req.isAuthenticated()) {
-      db.Character.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbCharacter) {
-        res.render('character-list', {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated(),
-          msg: 'Welcome!',
-          examples: dbCharacter
-        });
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-
-  // Load example page and pass in an example by id
-  router.get('/character-list/:id', function (req, res) {
-    if (req.isAuthenticated()) {
-      db.Character.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbCharacter) {
-        res.render('detail', {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated(),
-          example: dbCharacter
-        });
-      });
+      res.render('character-list', user);
     } else {
       res.redirect('/');
     }
