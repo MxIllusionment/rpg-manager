@@ -5,7 +5,6 @@ const characterGame = $('#character-game');
 const characterDesc = $('#character-desc');
 
 let characterData;
-let selectedCharId = 0;
 
 // The API object contains methods for each kind of request we'll make
 const API = {
@@ -40,7 +39,6 @@ const refreshCharacterList = function () {
     characterList.append(characters);
 
     $('.character-btn').click(function () {
-      selectedCharId = $(this).attr('data-id');
       $(this).addClass('selected-char-btn');
       selectCharacter($(this).attr('data-index'));
     });
@@ -61,5 +59,3 @@ const selectCharacter = index => {
 };
 
 refreshCharacterList();
-
-
