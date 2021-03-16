@@ -34,7 +34,7 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
-        user: req.session.passport.user,
+        userInfo: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
       res.render('character-list', user);
@@ -47,10 +47,23 @@ module.exports = (db) => {
   router.get('/character-list', (req, res) => {
     if (req.isAuthenticated()) {
       const user = {
-        user: req.session.passport.user,
+        userInfo: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
       res.render('character-list', user);
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // Load create/edit character page
+  router.get('/create-edit-character', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        userInfo: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('create-edit-character', user);
     } else {
       res.redirect('/');
     }
