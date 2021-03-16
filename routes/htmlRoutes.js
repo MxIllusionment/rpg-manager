@@ -69,6 +69,45 @@ module.exports = (db) => {
     }
   });
 
+  // Load inventory tracker page
+  router.get('/inventory-tracker', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        userInfo: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('inventory-tracker', user);
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // Load add item page
+  router.get('/add-item', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        userInfo: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('add-item', user);
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // Load create/edit itempage
+  router.get('/create-edit-items', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        userInfo: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('create-edit-items', user);
+    } else {
+      res.redirect('/');
+    }
+  });
+
   // Logout
   router.get('/logout', (req, res, next) => {
     req.logout();
