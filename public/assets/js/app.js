@@ -105,6 +105,11 @@ $('#login-modal').on('click', function (event) {
   $('#user-info').modal('show');
 });
 
+$('#logout-modal').on('click', function (event) {
+  event.preventDefault();
+  $('#user-logout').modal('show');
+});
+
 $('#go-home').on('click', function (event) {
   event.preventDefault();
   window.location.href = '/';
@@ -126,5 +131,13 @@ $('#login').on('click', function (event) {
       $('#login-err-msg').empty('').text(result.error);
       $('#user-info').modal('hide');
     }
+  });
+});
+
+$('#logout').on('click', function (event) {
+  event.preventDefault();
+
+  $.get('/logout', result => {
+    $(document.location).attr('href', '/');
   });
 });
