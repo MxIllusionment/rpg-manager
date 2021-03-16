@@ -35,7 +35,10 @@ body {
  width: auto;
  height: 65px;
 }
-
+.card, .list-group-item, p{
+  background: rgba(106, 119, 131, 0.6);
+  color: white;
+}
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
