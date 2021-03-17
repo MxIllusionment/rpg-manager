@@ -1,38 +1,38 @@
 {{> nav/nav-block}}
 
-<div class="modal" id="user-info" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Create/Edit Character</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="header">Create/Edit Character
+        </div>
+        <br>
+        <div class="mb-3">
+          <label for="Character Name" class="form-label">Character Name</label>
+          <input type="Name" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="Game Name" class="form-label">Game</label>
+          <input type="Name" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+          <label for="Data" class="form-label">Data</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+        </div>
       </div>
 
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="inputAccount">Character Name</label>
-            <input type="text" class="form-control" id="character_name">
-          </div>
-          <div class="form-group">
-            <label for="inputAccount">Character Description</label>
-            <input type="text" class="form-control" id="character_description">
-          </div>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button id="login" type="button" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Discard</button>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-danger">Save Character</button>
+        <br>
+        <button type="button" class="btn btn-danger">Discard</button>
       </div>
     </div>
   </div>
-</div>
+  </div>
 
-{{> modal/login-block}}
 
-<script>
-  var userId = {{userInfo.id}};
-</script>
+  {{> modal/login-block}}
+
+  <script>
+    var userId = {{ userInfo.id }};
+  </script>
