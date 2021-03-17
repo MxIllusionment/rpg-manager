@@ -4,20 +4,23 @@
   <div class="row">
     <div class="col-12">Inventory Tracker</div>
     <div class="col-4"> Item Inventory
-        <ul>
-            <li>Item:   Quantity:  </li>
-        </ul>
-    <div>
-         <button id="login" type="button" class="btn btn-primary">+ Item</button>
-    </div>
+      <ul id="inventory-list">
+        <li>Item: Quantity: </li>
+      </ul>
+      <div>
+        <button id="add-item" type="button" class="btn btn-primary">+ Item</button>
+      </div>
     </div>
     <div class="col-6">Item Details
-       <h5 class="card-title">Item Name: </h5>
-        <p class="card-text">Item Description: </p>
-  </div>
-  <div>
-      <!-- The raise and lower quanitity button needs to be affixed -->
-       <button id="login" type="button" class="btn btn-primary">Quantity: </button>
+      <h5 class="card-title">Item Name: <span id="item-name"></span></h5>
+      <p class="card-text">Item Description: <span id="item-desc"></span></p>
+      Quantity:
+      <input id="item-quantity" type="number" class="btn btn-primary" min=0 max=99>
+      <button id="inc-quantity" class=" btn btn-primary">Inc</button>
+      <button id="dec-quantity" class="btn btn-primary">Dec</button>
+      <button id="save-quantity" class="btn btn-primary">Save</button>
+    </div>
+
   </div>
 
-</div>
+  <script src="assets/js/inventory.js"></script>
