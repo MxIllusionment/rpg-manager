@@ -3,10 +3,10 @@
 
 <div id="home">
   <div class="container">
-    <div class="card mb-3">
+    <div class="card">
       <div class="row">
         <div class="col-md-4">
-          <div class="card-header">Character list
+          <div class="card-header text-center">Character list
           </div>
           <ul id="character-list" class="list-group">
             <li class="list-group-item">Character 1</li>
@@ -21,7 +21,7 @@
             <li class="list-group-item">Character 10</li>
             <li class="list-group-item">Character 11</li>
           </ul>
-          <button type="button" class="btn btn-danger"><a href="/create-edit-character">Create/Edit</a></button>
+          <button type="button" class="btn btn-danger col-12"><a href="/create-edit-character">Create/Edit</a></button>
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -30,8 +30,9 @@
                 <p><strong>Name: </strong><span id="character-name"></p>
                 <p><strong>Game: </strong><span id="character-game"></p>
                 <p><strong>Description: </strong><span id="character-desc"></p>
-                <button type="button" class="btn btn-danger"><a href="/create-edit-character">Edit</a></button>
-                <button type="button" class="btn btn-danger"><a href="/inventory-tracker">Inventory</a></button>
+                <a href="/inventory-tracker">
+                  <img id="inventoryIcon" alt="Inventory" src="assets/images/inventorytransparent.png">
+                </a>
             </form>
           </div>
         </div>
