@@ -116,7 +116,7 @@ module.exports = (db) => {
         return next(err);
       }
       res.clearCookie('connect.sid', { path: '/' });
-      res.redirect('/');
+      res.end();
     });
   });
 
