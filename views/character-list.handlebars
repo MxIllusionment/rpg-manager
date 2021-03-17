@@ -8,7 +8,7 @@
         <div class="col-md-4">
           <div class="card-header">Character list
           </div>
-          <ul class="list-group">
+          <ul id="character-list" class="list-group">
             <li class="list-group-item">Character 1</li>
             <li class="list-group-item">Character 2</li>
             <li class="list-group-item">Character 3</li>
@@ -27,9 +27,9 @@
           <div class="card-body">
             <form class="clearfix mb-4" action="POST">
               <div class="form-group">
-                <p><strong>Name:</strong> {{character.name}}</p>
-                <p><strong>Game: </strong> {{character.game}}</p>
-                <p><strong>Description:</strong> {{character.data}}</p>
+                <p><strong>Name: </strong><span id="character-name"></p>
+                <p><strong>Game: </strong><span id="character-game"></p>
+                <p><strong>Description: </strong><span id="character-desc"></p>
                 <button type="button" class="btn btn-danger"><a href="/create-edit-character">Edit</a></button>
                 <button type="button" class="btn btn-danger"><a href="/inventory-tracker">Inventory</a></button>
             </form>
@@ -73,11 +73,5 @@
 </div>
 </div> --}}
 
-
-<script src="/assets/js/example.js"></script>
-
+<script src="/assets/js/character.js"></script>
 {{> modal/login-block}}
-
-<script>
-  var userId = {{ userInfo.id }};
-</script>
