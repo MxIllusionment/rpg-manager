@@ -7,11 +7,12 @@ module.exports = function (db) {
           id: req.params.characterId
         },
         include: {
-          model: db.Item
+          model: db.Item,
+          include: db.Inventory.quantity
         }
       };
       db.Character.findOne(filter)
-        .then(data => res.json(data));
+        .then(data => res.json(data.Items));
     },
 
     // Add an item to a character's inventory
