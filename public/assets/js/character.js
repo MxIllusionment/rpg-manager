@@ -52,12 +52,17 @@ const selectCharacter = index => {
   if (characterData.length > 0) {
     characterName.text(characterData[index].name);
     characterGame.text(characterData[index].game);
-    characterDesc.text(characterData[index].description);
+    characterDesc.text(decodeURI(characterData[index].description));
   } else {
     characterName.empty();
     characterGame.empty();
     characterDesc.empty();
   }
 };
+
+// On Create Character click, clear the character ID
+$('#create-character').click(() => {
+  sessionStorage.removeItem('CharId');
+});
 
 refreshCharacterList();

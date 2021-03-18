@@ -3,5 +3,6 @@
 ## Description
 A generic manager for RPG characters and their inventories
 
-
-backpack image: https://pixy.org/2172059/
+## Credits
+Backpack Image: https://pixy.org/2172059/
+Feather Image: https://pixabay.com/images/id-305273/
