@@ -4,16 +4,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10">
-        <div class="header">Create/Edit Item
-        </div>
+        <div id="title" class="header"></div>
         <br>
         <div class="mb-3">
-          <label for="Character Name" class="form-label">Character Name</label>
-          <input type="Name" class="form-control" id="exampleFormControlInput1">
+          <label for="item-name-input" class="form-label">Item Name</label>
+          <input type="Name" class="form-control" id="item-name-input">
         </div>
         <div class="mb-3">
-          <label for="Data" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+          <label for="item-desc-input" class="form-label">Description</label>
+          <textarea class="form-control" id="item-desc-input" rows="20"></textarea>
         </div>
       </div>
 
@@ -26,7 +25,4 @@
   </div>
   </div>
 
-
-  <script>
-    var userId = {{ userInfo.id }};
-  </script>
+  <script src="/assets/js/itemEditor.js"></script>
