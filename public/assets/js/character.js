@@ -42,6 +42,7 @@ const refreshCharacterList = function () {
       $('.character-btn').removeClass('selected-char-btn');
       $(this).addClass('selected-char-btn');
       selectCharacter($(this).attr('data-index'));
+      sessionStorage.setItem('CharId', JSON.stringify($(this).attr('data-id')));
     });
   });
 };
