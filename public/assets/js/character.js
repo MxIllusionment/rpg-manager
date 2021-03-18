@@ -67,4 +67,8 @@ $('#create-character').click(() => {
   sessionStorage.removeItem('CharId');
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 refreshCharacterList();
