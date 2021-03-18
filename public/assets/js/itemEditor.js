@@ -19,7 +19,7 @@ const loadInitialData = () => {
   if (selectedItem) {
     API.getItem(selectedItem).then(data => {
       itemNameInput.val(data.name);
-      itemDescInput.val(data.description);
+      itemDescInput.val(decodeURI(data.description));
       $('#title').text('Edit Item');
     });
   } else {

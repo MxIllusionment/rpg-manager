@@ -45,7 +45,7 @@ const refreshItemList = function () {
 const selectItem = index => {
   if (itemData.length > 0) {
     itemName.text(itemData[index].name);
-    itemDesc.text(itemData[index].description);
+    itemDesc.text(decodeURI(itemData[index].description));
   } else {
     itemName.empty();
     itemDesc.empty();

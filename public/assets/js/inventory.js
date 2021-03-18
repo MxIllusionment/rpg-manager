@@ -46,7 +46,7 @@ const refreshInvList = function () {
 const selectItem = index => {
   if (itemData.length > 0) {
     itemName.text(itemData[index].name);
-    itemDesc.text(itemData[index].description);
+    itemDesc.text(decodeURI(itemData[index].description));
     itemQuant.val(itemData[index].Inventory.quantity);
   } else {
     itemName.empty();
