@@ -17,7 +17,6 @@ const API = {
 // Checks if a character ID was provided. If so, load that character's data
 const loadInitialData = () => {
   selectedChar = JSON.parse(sessionStorage.getItem('CharId'));
-  console.log(selectedChar);
   if (selectedChar) {
     API.getCharacter(selectedChar).then(data => {
       charNameInput.val(data.name);
