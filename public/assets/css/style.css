@@ -82,3 +82,7 @@ hr {
 .card-body {
   color: #444;
 }
+
+.prewrap {
+  white-space: pre-wrap;
+}
