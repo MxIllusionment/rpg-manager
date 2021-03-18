@@ -86,3 +86,11 @@ hr {
 .prewrap {
   white-space: pre-wrap;
 }
+
+.hidden {
+  display: none;
+}
+
+.bs-tooltip-bottom {
+  top: 30px !important;
+}

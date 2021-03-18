@@ -13,17 +13,17 @@
           <a id="create-character" type="button" class="btn btn-danger col-12" href="/create-edit-character">Create
             +</a>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" id="charDetails">
           <div class="card-body">
             <div class="clearfix mb-4">
               <div>
                 <p><strong>Name: </strong><span id="character-name"></p>
                 <p><strong>Game: </strong><span id="character-game"></p>
                 <p><strong>Data: </strong><br><span id="character-desc" class="prewrap"></p>
-                <a href="/inventory-tracker">
+                <a href="/inventory-tracker" data-toggle="tooltip" data-placement="bottom" title="Inventory">
                   <img id="inventoryIcon" alt="Inventory" src="assets/images/inventorytransparent.png">
                 </a>
-                <a href="/create-edit-character">
+                <a href="/create-edit-character" data-toggle="tooltip" data-placement="bottom" title="Edit Character">
                   <img id="editIcon" alt="Edit Character" src="assets/images/editquill.png">
                 </a>
               </div>
@@ -34,4 +34,5 @@
     </div>
   </div>
 </div>
-<script src="/assets/js/character.js"></script>
+<script src="/assets/js/character.js">
+</script>
