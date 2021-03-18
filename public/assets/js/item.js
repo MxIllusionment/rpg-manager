@@ -52,4 +52,9 @@ const selectItem = index => {
   }
 };
 
+// On Create Item click, clear the item ID
+$('#create-item').click(() => {
+  sessionStorage.removeItem('ItemId');
+});
+
 refreshItemList();

@@ -6,44 +6,32 @@
     <div class="card">
       <div class="row">
         <div class="col-md-4">
-          <div class="card-header text-center">Character list
+          <div class="card-header text-center">Character List
           </div>
           <ul id="character-list" class="list-group">
-            <li class="list-group-item">Character 1</li>
-            <li class="list-group-item">Character 2</li>
-            <li class="list-group-item">Character 3</li>
-            <li class="list-group-item">Character 4</li>
-            <li class="list-group-item">Character 5</li>
-            <li class="list-group-item">Character 6</li>
-            <li class="list-group-item">Character 7</li>
-            <li class="list-group-item">Character 8</li>
-            <li class="list-group-item">Character 9</li>
-            <li class="list-group-item">Character 10</li>
-            <li class="list-group-item">Character 11</li>
           </ul>
-          <button type="button" class="btn btn-danger col-12"><a href="/create-edit-character">Create +</a></button>
+          <a id="create-character" type="button" class="btn btn-danger col-12" href="/create-edit-character">Create
+            +</a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <form class="clearfix mb-4" action="POST">
-              <div class="form-group">
+            <div class="clearfix mb-4">
+              <div>
                 <p><strong>Name: </strong><span id="character-name"></p>
                 <p><strong>Game: </strong><span id="character-game"></p>
-                <p><strong>Description: </strong><span id="character-desc"></p>
+                <p><strong>Data: </strong><br><span id="character-desc" class="prewrap"></p>
                 <a href="/inventory-tracker">
                   <img id="inventoryIcon" alt="Inventory" src="assets/images/inventorytransparent.png">
                 </a>
                 <a href="/create-edit-character">
                   <img id="editIcon" alt="Edit Character" src="assets/images/editquill.png">
                 </a>
-            </form>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
-</div>
-
 <script src="/assets/js/character.js"></script>

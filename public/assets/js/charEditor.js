@@ -11,6 +11,20 @@ const API = {
       url: `api/characters/${id}`,
       type: 'GET'
     });
+  },
+  saveCharacter: function (charData) {
+    return $.ajax({
+      url: 'api/characters',
+      type: 'POST',
+      data: charData
+    });
+  },
+  updateCharacter: function (id, charData) {
+    return $.ajax({
+      url: `api/characters/${id}`,
+      type: 'PUT',
+      data: charData
+    });
   }
 };
 
@@ -21,9 +35,30 @@ const loadInitialData = () => {
     API.getCharacter(selectedChar).then(data => {
       charNameInput.val(data.name);
       charGameInput.val(data.game);
-      charDataInput.val(data.description);
+      charDataInput.val(decodeURI(data.description));
     });
   }
 };
+
+$('#save-char').click(e => {
+  e.preventDefault();
+  const charData = {
+    name: charNameInput.val().trim(),
+    game: charGameInput.val().trim(),
+    description: encodeURI(charDataInput.val())
+  };
+  if (!selectedChar) {
+    API.saveCharacter(charData)
+      .then(data => {
+        sessionStorage.setItem('CharId', data.id);
+        location.href = '/';
+      });
+  } else {
+    API.updateCharacter(selectedChar, charData)
+      .then(data => {
+        location.href = '/';
+      });
+  }
+});
 
 loadInitialData();
