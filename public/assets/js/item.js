@@ -36,6 +36,7 @@ const refreshItemList = function () {
       $('.item-btn').removeClass('selected-item-btn');
       $(this).addClass('selected-item-btn');
       selectItem($(this).attr('data-index'));
+      sessionStorage.setItem('ItemId', JSON.stringify($(this).attr('data-id')));
     });
   });
 };
