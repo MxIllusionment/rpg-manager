@@ -6,6 +6,7 @@ const characterDesc = $('#character-desc');
 
 let characterData;
 
+
 // The API object contains methods for each kind of request we'll make
 const API = {
   getCharacters: function () {
@@ -42,6 +43,7 @@ const refreshCharacterList = function () {
       $('.character-btn').removeClass('selected-char-btn');
       $(this).addClass('selected-char-btn');
       selectCharacter($(this).attr('data-index'));
+      sessionStorage.setItem('CharId', JSON.stringify($(this).attr('data-id')));
     });
   });
 };
