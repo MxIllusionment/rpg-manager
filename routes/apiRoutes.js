@@ -22,6 +22,7 @@ module.exports = (passport, db) => {
 
   // Character Routes
   router.get('/characters', CharController.getCharacters);
+  router.get('/characters/:id', CharController.getOneCharacter);
   router.post('/characters', CharController.createCharacter);
   router.delete('/characters/:id', CharController.deleteCharacter);
   router.put('/characters/:id', CharController.updateCharacter);
