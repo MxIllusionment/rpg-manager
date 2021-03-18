@@ -35,8 +35,11 @@ const loadInitialData = () => {
     API.getCharacter(selectedChar).then(data => {
       charNameInput.val(data.name);
       charGameInput.val(data.game);
-      charDataInput.val(decodeURI(data.description));
+      charDataInput.val(data.description);
+      $('#title').text('Edit Character');
     });
+  } else {
+    $('#title').text('Create Character');
   }
 };
 
