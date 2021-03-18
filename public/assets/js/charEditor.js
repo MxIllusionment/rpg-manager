@@ -22,7 +22,10 @@ const loadInitialData = () => {
       charNameInput.val(data.name);
       charGameInput.val(data.game);
       charDataInput.val(data.description);
+      $('#title').text('Edit Character');
     });
+  } else {
+    $('#title').text('Create Character');
   }
 };
 
