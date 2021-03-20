@@ -21,6 +21,7 @@ const API = {
 const refreshInvList = function () {
   return API.getInventory().then(data => {
     const inv = data.map((item, idx) => {
+      $('#itemDetails').addClass('hidden');
       const li = $('<li>')
         .addClass('list-group-item inv-btn')
         .attr('data-id', item.id)
@@ -45,6 +46,7 @@ const refreshInvList = function () {
 // Loads the selected item into the right column
 const selectItem = index => {
   if (itemData.length > 0) {
+    $('#itemDetails').removeClass('hidden');
     itemName.text(itemData[index].name);
     itemDesc.text(decodeURI(itemData[index].description));
     itemQuant.val(itemData[index].Inventory.quantity);
