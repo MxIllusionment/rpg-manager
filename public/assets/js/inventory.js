@@ -69,7 +69,7 @@ $('#inc-quantity').click(() => {
   $quantity.val(x);
 });
 
-$('#dec-quantity').click(function dec() {
+$('#dec-quantity').click(() => {
   const $quantity = $('#item-quantity');
   let y = $quantity.val();
   if (y >= 1) {
