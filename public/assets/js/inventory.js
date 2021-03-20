@@ -26,7 +26,7 @@ const refreshInvList = function () {
         .addClass('list-group-item inv-btn')
         .attr('data-id', item.id)
         .attr('data-index', idx)
-        .text(`${item.name}   Quantity: ${item.Inventory.quantity}`);
+        .text(`${item.name}   ×${item.Inventory.quantity}`);
 
       return li;
     });
@@ -69,7 +69,7 @@ $('#inc-quantity').click(() => {
   $quantity.val(x);
 });
 
-$('#dec-quantity').click(function dec () {
+$('#dec-quantity').click(() => {
   const $quantity = $('#item-quantity');
   let y = $quantity.val();
   if (y >= 1) {
