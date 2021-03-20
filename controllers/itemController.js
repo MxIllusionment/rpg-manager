@@ -22,12 +22,16 @@ module.exports = function (db) {
     createItem: (req, res) => {
       const newItem = {
         name: req.body.name,
-        description: req.body.description,
-        UserId: req.session.passport.user.id
+        description: req.body.description
       };
 
-      db.Item.create(newItem)
-        .then(data => res.json(data));
+      if (newItem.name.trim() === '' || newItem.description.trim() === '' || !req.session.passport) {
+        res.status(400).end();
+      } else {
+        newItem.UserId = req.session.passport.user.id;
+        db.Item.create(newItem)
+          .then(data => res.json(data));
+      }
     },
 
     // Delete an item by id
