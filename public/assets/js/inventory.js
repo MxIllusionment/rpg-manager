@@ -80,25 +80,41 @@ const loadSelectedChar = () => {
 
 // On Increment click, add 1 to the quantity
 $('#inc-quantity').click(() => {
-  const $quantity = $('#item-quantity');
-  let x = $quantity.val();
-  x++;
-  $quantity.val(x);
+  let x = itemQuant.val();
+  if (x < 99) {
+    x++;
+    itemQuant.val(x);
+  }
 });
 
 // On Decrement click, remove 1 from the quantity
 $('#dec-quantity').click(() => {
-  const $quantity = $('#item-quantity');
-  let y = $quantity.val();
-  if (y >= 1) {
+  let y = itemQuant.val();
+  if (y > 0) {
     y--;
-    $quantity.val(y);
+    itemQuant.val(y);
   }
 });
 
-$('#save-quantity').click(() => {
-  API.updateQuantity(selectedItem, $('#item-quantity').val())
+// Submit and save quantity
+$('#quantity-form').submit(e => {
+  e.preventDefault();
+  API.updateQuantity(selectedItem, itemQuant.val())
     .then(refreshInvList);
+});
+
+// Validate item quantity on value change
+itemQuant.change(() => {
+  const val = parseInt(itemQuant.val());
+  if (isNaN(val)) {
+    itemQuant.val(0);
+  } else if (val > 99) {
+    itemQuant.val(99);
+  } else if (val < 0) {
+    itemQuant.val(0);
+  } else {
+    itemQuant.val(val);
+  }
 });
 
 $(function () {
