@@ -3,14 +3,15 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="card-header text-center">Inventory Tracker
       </div>
       <ul id="inventory-list">
         <li>Item: Quantity: </li>
       </ul>
       <div>
-        <button id="add-item" type="button" class="btn btn-primary">+ Item</button>
+        <a id="add-item" type="button" class="btn btn-danger col-5" href="/add-item">Add Item</a>
+        <button id="remove-item" type="button" class="btn btn-danger col-5">Remove Item</button>
       </div>
     </div>
     <div class="col-6" id="itemDetails">Item Details
