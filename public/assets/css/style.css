@@ -80,10 +80,34 @@ hr {
   line-height: 2.5;
 }
 
+.header {
+  color: red;
+  font-weight: 900;
+  font-size: x-large;
+  font-family: 'MedievalSharp', cursive;
+}
+
+.list-group-item{
+  color: rgb(27, 17, 17);
+  font-weight: 1000;
+  font-family: 'MedievalSharp', cursive;
+}
+
 .card-body {
   color: #444;
 }
 
+.form-group{
+  color: rgb(27, 17, 17);
+  font-weight: 900;
+}
+
+nav {
+  font-family: 'MedievalSharp', cursive;
+}
+.row {
+  border-radius: 3em;
+}
 .prewrap {
   white-space: pre-wrap;
 }
