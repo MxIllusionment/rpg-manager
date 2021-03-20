@@ -1,28 +1,30 @@
 {{> nav/nav-block}}
 
-<<div id="home">
+<div id="home">
   <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-        <div id="title" class="header"></div>
-        <br>
-        <div class="mb-3">
-          <label for="item-name-input" class="form-label">Item Name</label>
-          <input type="Name" class="form-control" id="item-name-input">
+    <form id="item-form">
+      <div class="row">
+        <div class="col-md-10">
+          <div id="title" class="header"></div>
+          <br>
+          <div class="mb-3">
+            <label for="item-name-input" class="form-label">Item Name</label>
+            <input type="Name" class="form-control" id="item-name-input" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="item-desc-input" class="form-label">Description</label>
+            <textarea class="form-control" id="item-desc-input" rows="20" name="description"></textarea>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="item-desc-input" class="form-label">Description</label>
-          <textarea class="form-control" id="item-desc-input" rows="20"></textarea>
+
+        <div class="col-md-2">
+          <button id="save-item" type="submit" class="btn btn-danger">Save Item</button>
+          <br>
+          <a type="button" class="btn btn-danger" href="/add-item">Discard</a>
         </div>
       </div>
-
-      <div class="col-md-2">
-        <button type="button" class="btn btn-danger">Save</button>
-        <br>
-        <button type="button" class="btn btn-danger">Discard</button>
-      </div>
-    </div>
+    </form>
   </div>
-  </div>
+</div>
 
-  <script src="/assets/js/itemEditor.js"></script>
+<script src="/assets/js/itemEditor.js"></script>
