@@ -95,6 +95,7 @@ $('#add-icon').click(() => {
     API.addItemToInventory(selectedChar, itemData)
       .then(data => {
         sessionStorage.removeItem('ItemId');
+        sessionStorage.removeItem('EditorId');
         location.href = '/inventory-tracker';
       });
   }
