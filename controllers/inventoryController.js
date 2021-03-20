@@ -24,7 +24,7 @@ module.exports = function (db) {
       };
 
       db.Character.findOne(filter)
-        .then(char => char.addItem(req.body.id, { through: { quantity: 1 } }))
+        .then(char => char.addItem(parseInt(req.body.id), { through: { quantity: 1 } }))
         .then(data => res.json(data));
     },
 
