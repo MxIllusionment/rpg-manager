@@ -6,12 +6,19 @@ const itemDesc = $('#item-desc');
 let itemData;
 let selectedChar;
 let selectedItem;
+let inventory;
 
 // The API object contains methods for each kind of request we'll make
 const API = {
   getItems: function () {
     return $.ajax({
       url: 'api/items',
+      type: 'GET'
+    });
+  },
+  getInventory: function (charId) {
+    return $.ajax({
+      url: `api/characters/${charId}/inventory`,
       type: 'GET'
     });
   },
@@ -32,6 +39,7 @@ const refreshItemList = function () {
         .addClass('list-group-item item-btn')
         .attr('data-id', item.id)
         .attr('data-index', idx)
+        .attr('data-allow-add', !inventory.includes(item.id))
         .text(item.name);
 
       return li;
@@ -65,6 +73,11 @@ const selectItem = li => {
     } else {
       $('#edit-icon').addClass('remove');
     }
+    if (li.attr('data-allow-add') === 'true') {
+      $('#add-icon').removeClass('remove');
+    } else {
+      $('#add-icon').addClass('remove');
+    }
   } else {
     selectedItem = 0;
     itemName.empty();
@@ -72,10 +85,9 @@ const selectItem = li => {
   }
 };
 
-// Loads the current item and character from the session
+// Loads the current item from the session
 const loadCurrent = () => {
   const currentItem = parseInt(JSON.parse(sessionStorage.getItem('ItemId')));
-  selectedChar = parseInt(JSON.parse(sessionStorage.getItem('CharId')));
 
   if (currentItem) {
     // Find character entry in data
@@ -87,17 +99,27 @@ const loadCurrent = () => {
   }
 };
 
+// Loads the current character's inventory
+const loadInventory = () => {
+  selectedChar = parseInt(JSON.parse(sessionStorage.getItem('CharId')));
+  return API.getInventory(selectedChar).then(data => {
+    inventory = data.map(item => item.id);
+  });
+};
+
+const returnToInventory = () => {
+  sessionStorage.removeItem('ItemId');
+  sessionStorage.removeItem('EditorId');
+  location.href = '/inventory-tracker';
+};
+
 $('#add-icon').click(() => {
   if (selectedChar && selectedItem) {
     const itemData = {
       id: selectedItem
     };
     API.addItemToInventory(selectedChar, itemData)
-      .then(data => {
-        sessionStorage.removeItem('ItemId');
-        sessionStorage.removeItem('EditorId');
-        location.href = '/inventory-tracker';
-      });
+      .then(returnToInventory);
   }
 });
 
@@ -106,9 +128,12 @@ $('#create-item').click(() => {
   sessionStorage.removeItem('ItemId');
 });
 
+$('#return-icon').click(returnToInventory);
+
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-refreshItemList()
+loadInventory()
+  .then(refreshItemList)
   .then(loadCurrent);
