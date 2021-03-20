@@ -132,9 +132,14 @@ nav {
   visibility: hidden;
 }
 
+
+#inventory-list {
+  padding-left: 0px;
+}
+
 .remove {
   display: none;
-}
+ }
 
 .bs-tooltip-bottom {
   top: 30px !important;
