@@ -37,8 +37,8 @@ module.exports = (passport, db) => {
   router.get('/items', ItemController.getItems);
   router.get('/items/:id', ItemController.getOneItem);
   router.post('/items', ItemController.createItem);
-  router.delete('/items/:itemId', ItemController.deleteItem);
-  router.put('/items/:itemId', ItemController.updateItem);
+  router.delete('/items/:id', ItemController.deleteItem);
+  router.put('/items/:id', ItemController.updateItem);
 
   return router;
 };

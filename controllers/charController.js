@@ -29,12 +29,17 @@ module.exports = function (db) {
       const newChar = {
         name: req.body.name,
         game: req.body.game,
-        description: req.body.description,
-        UserId: req.session.passport.user.id
+        description: req.body.description
       };
 
-      db.Character.create(newChar)
-        .then(data => res.json(data));
+      if (newChar.name.trim() === '' || newChar.game.trim() === '' ||
+        newChar.description.trim() === '' || !req.session.passport) {
+        res.status(400).end();
+      } else {
+        newChar.UserId = req.session.passport.user.id;
+        db.Character.create(newChar)
+          .then(data => res.json(data));
+      }
     },
 
     // Delete a character by id

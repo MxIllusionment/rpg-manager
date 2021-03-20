@@ -35,7 +35,8 @@ body {
 
 #update-err-msg,
 #login-err-msg,
-#create-err-msg {
+#create-err-msg,
+.validation-err {
   color: red !important;
 }
 

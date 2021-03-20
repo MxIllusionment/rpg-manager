@@ -43,7 +43,7 @@ const loadInitialData = () => {
   }
 };
 
-$('#save-char').click(e => {
+const saveCharacterForm = (form, e) => {
   e.preventDefault();
   const charData = {
     name: charNameInput.val().trim(),
@@ -61,6 +61,33 @@ $('#save-char').click(e => {
       .then(data => {
         location.href = '/';
       });
+  }
+};
+
+$('#character-form').validate({
+  rules: {
+    name: {
+      required: true,
+      normalizer: value => $.trim(value)
+    },
+    game: {
+      required: true,
+      normalizer: value => $.trim(value)
+    },
+    data: {
+      required: true,
+      normalizer: value => $.trim(value)
+    }
+  },
+  messages: {
+    name: 'Required',
+    game: 'Required',
+    data: 'Required'
+  },
+  submitHandler: saveCharacterForm,
+  errorPlacement: (error, element) => {
+    error.addClass('ml-5 validation-err');
+    error.insertBefore(element);
   }
 });
 

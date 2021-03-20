@@ -1,32 +1,35 @@
 {{> nav/nav-block}}
 
-<<div id="home">
+<div id="home">
   <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-        <div id="title" class="header"></div>
-        <br>
-        <div class="mb-3">
-          <label for="Character Name" class="form-label">Character Name</label>
-          <input type="Name" class="form-control" id="char-name-input">
+    <form id="character-form">
+      <div class="row">
+        <div class="col-md-10">
+          <div id="title" class="header"></div>
+          <br>
+          <div class="mb-3">
+            <label for="Character Name" class="form-label">Character Name</label>
+            <input type="Name" class="form-control" id="char-name-input" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="Game Name" class="form-label">Game</label>
+            <input type="Name" class="form-control" id="char-game-input" name="game">
+          </div>
+          <div class="mb-3">
+            <label for="Data" class="form-label">Data</label>
+            <textarea class="form-control" id="char-data-input" rows="20" name="data"></textarea>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="Game Name" class="form-label">Game</label>
-          <input type="Name" class="form-control" id="char-game-input">
-        </div>
-        <div class="mb-3">
-          <label for="Data" class="form-label">Data</label>
-          <textarea class="form-control" id="char-data-input" rows="20"></textarea>
-        </div>
-      </div>
 
-      <div class="col-md-2">
-        <button id="save-char" type="button" class="btn btn-danger">Save Character</button>
-        <br>
-        <a type="button" class="btn btn-danger" href="/">Discard</a>
-      </div>
-    </div>
-  </div>
-  </div>
+        <div class="col-md-2">
+          <button id="save-char" type="submit" class="btn btn-danger">Save Character</button>
+          <br>
+          <a type="button" class="btn btn-danger" href="/">Discard</a>
+        </div>
 
-  <script src="/assets/js/charEditor.js"></script>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/assets/js/charEditor.js"></script>
