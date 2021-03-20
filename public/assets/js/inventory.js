@@ -78,5 +78,9 @@ $('#dec-quantity').click(() => {
   }
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 loadSelectedChar();
 refreshInvList();
