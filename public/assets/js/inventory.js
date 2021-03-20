@@ -59,5 +59,22 @@ const loadSelectedChar = () => {
   selectedChar = JSON.parse(sessionStorage.getItem('CharId'));
 };
 
+// On Increment click, add 1 to the quanitiy
+$('#inc-quantity').click(() => {
+  const $quantity = $('#item-quantity');
+  let x = $quantity.val();
+  x++;
+  $quantity.val(x);
+});
+
+$('#dec-quantity').click(function dec () {
+  const $quantity = $('#item-quantity');
+  let y = $quantity.val();
+  if (y >= 1) {
+    y--;
+    $quantity.val(y);
+  }
+});
+
 loadSelectedChar();
 refreshInvList();
