@@ -2,6 +2,8 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-9"></div>
+    <input type="button" class="btn btn-primary col-md" onclick="location.href='/';" value="← Character list" />
     <div class="col-4">
       <div class="card-header text-center">Inventory Tracker
       </div>
@@ -12,7 +14,7 @@
         <button id="add-item" type="button" class="btn btn-primary">+ Item</button>
       </div>
     </div>
-    <div class="col-6">Item Details
+    <div class="col-6" id="itemDetails">Item Details
       <h5 class="card-title"><span id="item-name"></span></h5>
       <p class="card-text"><span id="item-desc" class="prewrap"></span></p>
       Quantity:

@@ -40,16 +40,20 @@ const refreshCharacterList = function () {
     characterList.append(characters);
 
     $('.character-btn').click(function () {
-      $('.character-btn').removeClass('selected-char-btn');
-      $(this).addClass('selected-char-btn');
-      selectCharacter($(this).attr('data-index'));
+      selectCharacter($(this));
       sessionStorage.setItem('CharId', JSON.stringify($(this).attr('data-id')));
     });
   });
 };
 
-// Loads the selected character into the right column
-const selectCharacter = index => {
+// Loads the selected character into the right column and highlight the list item
+const selectCharacter = li => {
+  const index = li.attr('data-index');
+
+  // Highlight currently selected character
+  $('.character-btn').removeClass('selected-char-btn');
+  li.addClass('selected-char-btn');
+
   if (characterData.length > 0) {
     $('#charDetails').removeClass('hidden');
     characterName.text(characterData[index].name);
@@ -62,6 +66,20 @@ const selectCharacter = index => {
   }
 };
 
+// Loads the current character from the session
+const loadCurrentCharacter = () => {
+  const currentChar = parseInt(JSON.parse(sessionStorage.getItem('CharId')));
+
+  if (currentChar) {
+    // Find character entry in data
+    const li = characterList.find(`[data-id=${currentChar}]`);
+
+    if (li !== -1) {
+      selectCharacter(li);
+    }
+  }
+};
+
 // On Create Character click, clear the character ID
 $('#create-character').click(() => {
   sessionStorage.removeItem('CharId');
@@ -71,4 +89,5 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-refreshCharacterList();
+refreshCharacterList()
+  .then(loadCurrentCharacter);
