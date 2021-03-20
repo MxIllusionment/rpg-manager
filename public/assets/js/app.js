@@ -138,6 +138,11 @@ $('#logout').on('click', function (event) {
   event.preventDefault();
 
   $.get('/logout', result => {
+    sessionStorage.clear();
     $(document.location).attr('href', '/');
   });
+});
+
+$('#brand-link').click(() => {
+  sessionStorage.clear();
 });
