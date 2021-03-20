@@ -57,4 +57,8 @@ $('#create-item').click(() => {
   sessionStorage.removeItem('ItemId');
 });
 
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 refreshItemList();

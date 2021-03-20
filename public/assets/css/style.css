@@ -1,10 +1,10 @@
 body {
   background-image: url("../images/background.jpg");
-  color:rgb(197, 175, 47);
-  background-size: cover;
+  color: white;
+  background-size: center;
   background-color: black;
   background-repeat: no-repeat;
-  height:100%;
+  background-attachment: fixed;
 }
 
 #inventoryIcon {
@@ -146,4 +146,8 @@ nav {
 	top:1px;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+}
 
