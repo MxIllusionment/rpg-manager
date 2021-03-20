@@ -60,6 +60,11 @@ const selectItem = li => {
     selectedItem = parseInt(itemData[index].id);
     itemName.text(itemData[index].name);
     itemDesc.text(decodeURI(itemData[index].description));
+    if (itemData[index].UserId === parseInt(sessionStorage.getItem('EditorId'))) {
+      $('#edit-icon').removeClass('remove');
+    } else {
+      $('#edit-icon').addClass('remove');
+    }
   } else {
     selectedItem = 0;
     itemName.empty();
@@ -87,9 +92,9 @@ $('#add-icon').click(() => {
     const itemData = {
       id: selectedItem
     };
-    console.log(itemData);
     API.addItemToInventory(selectedChar, itemData)
       .then(data => {
+        sessionStorage.removeItem('ItemId');
         location.href = '/inventory-tracker';
       });
   }

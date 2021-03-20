@@ -132,6 +132,10 @@ nav {
   visibility: hidden;
 }
 
+.remove {
+  display: none;
+}
+
 .bs-tooltip-bottom {
   top: 30px !important;
 }
