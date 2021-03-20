@@ -20,6 +20,7 @@ const API = {
 const refreshCharacterList = function () {
   return API.getCharacters().then(data => {
     const characters = data.map((char, idx) => {
+      $('#charDetails').addClass('hidden');
       const li = $('<li>')
         .addClass('list-group-item character-btn')
         .attr('data-id', char.id)
@@ -50,14 +51,24 @@ const refreshCharacterList = function () {
 // Loads the selected character into the right column
 const selectCharacter = index => {
   if (characterData.length > 0) {
+    $('#charDetails').removeClass('hidden');
     characterName.text(characterData[index].name);
     characterGame.text(characterData[index].game);
-    characterDesc.text(characterData[index].description);
+    characterDesc.text(decodeURI(characterData[index].description));
   } else {
     characterName.empty();
     characterGame.empty();
     characterDesc.empty();
   }
 };
+
+// On Create Character click, clear the character ID
+$('#create-character').click(() => {
+  sessionStorage.removeItem('CharId');
+});
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
 refreshCharacterList();

@@ -3,20 +3,22 @@
 <div class="container">
   <div class="row">
     <div class="col-12">Add Item</div>
-    <div class="col-4"> Exisiting Item Inventory
+    <div class="col-4">
       <ul id="item-list">
         <li>Item: </li>
       </ul>
       <div>
-        <button id="login" type="button" class="btn btn-primary"> Create Item</button>
+        <a id="create-item" type="button" class="btn btn-danger col-12" href="/create-edit-items">Create +</a>
       </div>
     </div>
-    <div class="col-6">Item Details
-      <h5 class="card-title">Item Name: <span id="item-name"></span></h5>
-      <p class="card-text">Item Description: <span id="item-desc"></span></p>
+    <div class="col-6">
+      <h5 class="card-title"><span id="item-name"></span></h5>
+      <p class="card-text"><span id="item-desc" class="prewrap"></span></p>
     </div>
     <div>
-      <button id="login" type="button" class="btn btn-primary">Edit </button>
+      <a href="/create-edit-items">
+        <img id="editIcon" alt="Edit Item" src="assets/images/editquill.png">
+      </a>
     </div>
 
   </div>

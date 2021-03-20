@@ -5,13 +5,13 @@ const itemDesc = $('#item-desc');
 const itemQuant = $('#item-quantity');
 
 let itemData;
-const characterId = 1;
+let selectedChar;
 
 // The API object contains methods for each kind of request we'll make
 const API = {
   getInventory: function () {
     return $.ajax({
-      url: `api/characters/${characterId}/inventory`,
+      url: `api/characters/${selectedChar}/inventory`,
       type: 'GET'
     });
   }
@@ -46,7 +46,7 @@ const refreshInvList = function () {
 const selectItem = index => {
   if (itemData.length > 0) {
     itemName.text(itemData[index].name);
-    itemDesc.text(itemData[index].description);
+    itemDesc.text(decodeURI(itemData[index].description));
     itemQuant.val(itemData[index].Inventory.quantity);
   } else {
     itemName.empty();
@@ -54,4 +54,10 @@ const selectItem = index => {
   }
 };
 
+// Loads the selected character from session storage
+const loadSelectedChar = () => {
+  selectedChar = JSON.parse(sessionStorage.getItem('CharId'));
+};
+
+loadSelectedChar();
 refreshInvList();

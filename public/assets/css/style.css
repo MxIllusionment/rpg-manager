@@ -35,7 +35,8 @@ body {
 
 #update-err-msg,
 #login-err-msg,
-#create-err-msg {
+#create-err-msg,
+.validation-err {
   color: red !important;
 }
 
@@ -106,4 +107,15 @@ nav {
 }
 .row {
   border-radius: 3em;
+}
+.prewrap {
+  white-space: pre-wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.bs-tooltip-bottom {
+  top: 30px !important;
 }

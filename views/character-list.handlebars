@@ -3,38 +3,32 @@
 
 <div id="home">
   <div class="container">
-    <div class="header text-center">Character list</div>
-    <div class="row">
-      <div class="col-md-4">
-
-        <ul id="character-list" class="list-group">
-          <li class="list-group-item">Character 1</li>
-          <li class="list-group-item">Character 2</li>
-          <li class="list-group-item">Character 3</li>
-          <li class="list-group-item">Character 4</li>
-          <li class="list-group-item">Character 5</li>
-          <li class="list-group-item">Character 6</li>
-          <li class="list-group-item">Character 7</li>
-          <li class="list-group-item">Character 8</li>
-          <li class="list-group-item">Character 9</li>
-          <li class="list-group-item">Character 10</li>
-          <li class="list-group-item">Character 11</li>
-        </ul>
-        <button type="button" class="btn btn-danger col-12"><a href="/create-edit-character">Create +</a></button>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <form class="clearfix mb-4" action="POST">
-            <div class="form-group">
-              <p><strong>Name: </strong><span id="character-name"></p>
-              <p><strong>Game: </strong><span id="character-game"></p>
-              <p><strong>Description: </strong><span id="character-desc"></p>
-              <a href="/inventory-tracker">
-                <img id="inventoryIcon" alt="Inventory" src="assets/images/inventorytransparent.png">
-                <button type="button" class="btn btn-danger"><a href="/create-edit-character">Edit
-                    Character</a></button>
-              </a>
-          </form>
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-header text-center">Character List
+          </div>
+          <ul id="character-list" class="list-group">
+          </ul>
+          <a id="create-character" type="button" class="btn btn-danger col-12" href="/create-edit-character">Create
+            +</a>
+        </div>
+        <div class="col-md-8" id="charDetails">
+          <div class="card-body">
+            <div class="clearfix mb-4">
+              <div>
+                <p><strong>Name: </strong><span id="character-name"></p>
+                <p><strong>Game: </strong><span id="character-game"></p>
+                <p><strong>Data: </strong><br><span id="character-desc" class="prewrap"></p>
+                <a href="/inventory-tracker" data-toggle="tooltip" data-placement="bottom" title="Inventory">
+                  <img id="inventoryIcon" alt="Inventory" src="assets/images/inventorytransparent.png">
+                </a>
+                <a href="/create-edit-character" data-toggle="tooltip" data-placement="bottom" title="Edit Character">
+                  <img id="editIcon" alt="Edit Character" src="assets/images/editquill.png">
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
