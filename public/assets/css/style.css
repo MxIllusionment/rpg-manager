@@ -7,6 +7,10 @@ body {
   background-attachment: fixed;
 }
 
+#item-list {
+  padding: 0%;
+}
+
 #inventoryIcon {
   background: transparent;
   height: 100px;
