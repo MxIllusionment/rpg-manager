@@ -17,11 +17,13 @@
     <div class="col-6 hidden" id="itemDetails">
       <h5 class="card-title"><span id="item-name"></span></h5>
       <p class="card-text"><span id="item-desc" class="prewrap"></span></p>
-      Quantity:
-      <input id="item-quantity" type="number" class="btn btn-primary" min=0 max=99>
-      <button id="inc-quantity" class="btn btn-primary quant-btn">+</button>
-      <button id="dec-quantity" class="btn btn-primary quant-btn">−</button>
-      <button id="save-quantity" class="ml-3 btn btn-primary">Save</button>
+      <form id="quantity-form">
+        Quantity:
+        <input id="item-quantity" type="number" class="btn btn-primary" min="0" max="99">
+        <button id="inc-quantity" type="button" class="btn btn-primary">Inc</button>
+        <button id="dec-quantity" type="button" class="btn btn-primary">Dec</button>
+        <button id="save-quantity" type="submit" class="btn btn-primary">Save</button>
+      </form>
     </div>
     <div class="col-md">
       <a href="/">
