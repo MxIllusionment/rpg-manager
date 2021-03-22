@@ -36,9 +36,16 @@ module.exports = function (db) {
         }
       };
 
+      // Checks that user has permission to modify this character's inventory
       db.Character.findOne(filter)
-        .then(char => char.removeItem(req.params.itemId))
-        .then(data => res.json(data));
+        .then(char => {
+          if (req.session.passport && char.UserId === req.session.passport.user.id) {
+            char.removeItem(req.params.itemId)
+              .then(data => res.json(data));
+          } else {
+            res.status(400).end();
+          }
+        });
     },
 
     // Update the quantity of an item in a character's inventory
@@ -49,9 +56,22 @@ module.exports = function (db) {
           ItemId: req.params.itemId
         }
       };
+      const charFilter = {
+        where: {
+          id: req.params.characterId
+        }
+      };
 
-      db.Inventory.update({ quantity: req.body.quantity }, invFilter)
-        .then(data => res.json(data));
+      // Checks that user has permission to modify this character's inventory
+      db.Character.findOne(charFilter)
+        .then(char => {
+          if (req.session.passport && char.UserId === req.session.passport.user.id) {
+            db.Inventory.update({ quantity: req.body.quantity }, invFilter)
+              .then(data => res.json(data));
+          } else {
+            res.status(400).end();
+          }
+        });
     }
   };
 };

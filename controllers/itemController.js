@@ -25,6 +25,7 @@ module.exports = function (db) {
         description: req.body.description
       };
 
+      // Checks that user is logged in and that both name and description have content
       if (newItem.name.trim() === '' || newItem.description.trim() === '' || !req.session.passport) {
         res.status(400).end();
       } else {
@@ -36,12 +37,42 @@ module.exports = function (db) {
 
     // Delete an item by id
     deleteItem: (req, res) => {
-      db.Item.destroy({ where: { id: req.params.id } }).then(data => res.json(data));
+      const filter = {
+        where: {
+          id: req.params.id
+        }
+      };
+
+      // Checks if current user has permission to affect this item
+      db.Item.findOne(filter)
+        .then(data => {
+          if (req.session.passport && req.session.passport.user.id === data.UserId) {
+            db.Item.destroy({ where: { id: req.params.id } })
+              .then(data => res.json(data));
+          } else {
+            res.status(400).end();
+          }
+        });
     },
 
     // Update an item by id
     updateItem: (req, res) => {
-      db.Item.update(req.body, { where: { id: req.params.id } }).then(data => res.json(data));
+      const filter = {
+        where: {
+          id: req.params.id
+        }
+      };
+
+      // Checks if current user has permission to affect this item
+      db.Item.findOne(filter)
+        .then(data => {
+          if (req.session.passport && req.session.passport.user.id === data.UserId) {
+            db.Item.update(req.body, { where: { id: req.params.id } })
+              .then(data => res.json(data));
+          } else {
+            res.status(400).end();
+          }
+        });
     }
   };
 };
