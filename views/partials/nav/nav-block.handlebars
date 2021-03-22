@@ -13,21 +13,6 @@
 
     {{#if isloggedin}}
     <li class="nav-item">
-      <a class="nav-link" href="/character-list">Select Characters</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/create-edit-character">Create or Edit Character</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/inventory-tracker">Inventory Tracker</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/add-item">Add Item</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/create-edit-items">Create/Edit Items</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="#" id="logout-modal">Logout</a>
     </li>
     {{else}}
@@ -35,7 +20,7 @@
       <a class="nav-link" href="#" id="login-modal">Login</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/register" data-register={{register}}>Register</a>
+      <a class="nav-link" href="/register" id="register-modal" data-register={{register}}>Register</a>
     </li>
     {{/if}}
   </ul>
