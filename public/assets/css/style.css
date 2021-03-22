@@ -25,6 +25,9 @@ body {
   color: black;
 }
 
+#logout-modal {
+  color: rgb(197, 175, 47);
+}
 
 #user-form, .header-wrap, #create-form, .create-user-wrap {
   padding: 20px;
