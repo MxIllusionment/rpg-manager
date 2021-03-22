@@ -32,6 +32,7 @@ module.exports = function (db) {
         description: req.body.description
       };
 
+      // Checks that user is logged in and that all fields have content
       if (newChar.name.trim() === '' || newChar.game.trim() === '' ||
         newChar.description.trim() === '' || !req.session.passport) {
         res.status(400).end();
@@ -44,12 +45,42 @@ module.exports = function (db) {
 
     // Delete a character by id
     deleteCharacter: (req, res) => {
-      db.Character.destroy({ where: { id: req.params.id } }).then(data => res.json(data));
+      const filter = {
+        where: {
+          id: req.params.id
+        }
+      };
+
+      // Checks if current user has permission to affect this character
+      db.Character.findOne(filter)
+        .then(data => {
+          if (req.session.passport && req.session.passport.user.id === data.UserId) {
+            db.Character.destroy({ where: { id: req.params.id } })
+              .then(data => res.json(data));
+          } else {
+            res.status(400).end();
+          }
+        });
     },
 
     // Update a character by id
     updateCharacter: (req, res) => {
-      db.Character.update(req.body, { where: { id: req.params.id } }).then(data => res.json(data));
+      const filter = {
+        where: {
+          id: req.params.id
+        }
+      };
+
+      // Checks if current user has permission to affect this character
+      db.Character.findOne(filter)
+        .then(data => {
+          if (req.session.passport && req.session.passport.user.id === data.UserId) {
+            db.Character.update(req.body, { where: { id: req.params.id } })
+              .then(data => res.json(data));
+          } else {
+            res.status(400).end();
+          }
+        });
     }
   };
 };
