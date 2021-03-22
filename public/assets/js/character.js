@@ -27,12 +27,6 @@ const refreshCharacterList = function () {
         .attr('data-index', idx)
         .text(char.name);
 
-      const delButton = $('<button>')
-        .addClass('btn btn-danger float-right delete')
-        .text('ｘ');
-
-      li.append(delButton);
-
       return li;
     });
     characterData = data;
