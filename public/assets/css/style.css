@@ -1,3 +1,7 @@
+/*========================================================================
+Universal Page styling
+*=======================================================================*/
+
 body {
   background-image: url("../images/background.jpg");
   color: white;
@@ -7,156 +11,22 @@ body {
   background-attachment: fixed;
 }
 
-#item-list {
-  padding: 0%;
+.row {
+  border-radius: 3em;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+/*========================================================================
+Icon and Button Styling 
+*=======================================================================*/
 
 #inventoryIcon {
   background: transparent;
   height: 100px;
   width: 100px;
-}
-
-.jumbotron {
-  background: rgba(0,0,0,0);
-}
-
-.modal {
-  color: black;
-}
-
-#logout-modal, #login-modal, #register-modal{
-  color: rgb(197, 175, 47);
-}
-
-#user-form, .header-wrap, #create-form, .create-user-wrap {
-  padding: 20px;
-  border-radius: 15px;
-  margin: 20px 0;
-}
-
-#update-err-msg,
-#login-err-msg,
-#create-err-msg,
-.validation-err {
-  color: red !important;
-}
-
-#go-home {
- width: auto;
- height: 65px;
-}
-.card, .list-group-item, p{
-  background: rgba(86, 101, 115,.6);
-  color: white;
-}
-.container {
-  padding: 2%;
-  margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
-  border-radius: .25rem;
-}
-
-[data-useremail="true"] {
-  color: white !important;
-}
-[data-register="true"] {
-  color: white !important;
-}
-
-.lead {
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.userId h2, .header-wrap h1 {
-  text-transform: capitalize;
-}
-
-hr {
-  background-color: #fff !important;
-}
-
-.list-group-item {
-  line-height: 2.5;
-}
-
-.header, .card-header {
-  color: rgb(197, 175, 47);
-  font-weight: 900;
-  font-size: x-large;
-  font-family: 'MedievalSharp', cursive;
-}
-
-.list-group-item, .form-label{
-  color: rgb(197, 175, 47);
-  font-weight: 1000;
-
-}
-
-.selected-char-btn,
-.selected-item-btn,
-.selected-inv-btn {
-  background-color: rgba(197, 175, 47, 0.295);
-  color: #111;
-}
-
-.card-body {
-  color: #444;
-}
-
-.form-group{
-  color: rgb(255, 255, 255);
-  font-weight: 900;
-}
-
-.form-control {
-  background-color: #444 !important;
-  color:white !important; 
-}
-
-.form-control:focus {
-  outline: none;
-  box-shadow:none !important;
-  border:1px solid white;
-}
-
-textarea {
-  color:white !important; 
-}
-
-nav {
-  font-family: 'MedievalSharp', cursive;
-  color: rgb(197, 175, 47);
-}
-
-.navbar-brand {
-  color: rgb(197, 175, 47);
-}
-
-.row {
-  border-radius: 3em;
-}
-.prewrap {
-  white-space: pre-wrap;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-
-#inventory-list {
-  padding-left: 0px;
-}
-
-.remove {
-  display: none;
- }
-
-.bs-tooltip-bottom {
-  top: 30px !important;
 }
 
 .btn {
@@ -191,12 +61,167 @@ nav {
   padding: 8px;
 }
 
+.selected-char-btn,
+.selected-item-btn,
+.selected-inv-btn {
+  background-color: rgba(197, 175, 47, 0.295);
+  color: #111;
+
+.bs-tooltip-bottom {
+  top: 30px !important;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{
   -webkit-appearance: none;
 }
+/*========================================================================
+Input area/Text area Styling
+*=======================================================================*/
 
-.pointer {
-  cursor: pointer;
+::placeholder {
+  color: white !important;
+  opacity: .50 !important;
+}
+
+
+.form-control {
+  background-color: #444 !important;
+  color:white !important; 
+}
+
+.form-group{
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid white;
+}
+
+textarea {
+  color:white !important; 
+}
+
+/*========================================================================
+Card Styling/Container Style
+*=======================================================================*/
+
+.header, .card-header {
+  color: rgb(197, 175, 47);
+  font-weight: 900;
+  font-size: x-large;
+  font-family: 'MedievalSharp', cursive;
+}
+
+.prewrap {
+  white-space: pre-wrap;
+}
+
+.container {
+  padding: 2%;
+  margin-top: 10%;
+  background: rgba(86, 101, 115,.6);
+  height:100%;
+  border-radius: .25rem;
+}
+
+#user-form, .header-wrap, #create-form, .create-user-wrap {
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.card, .list-group-item, p{
+  background: rgba(86, 101, 115,.6);
+  color: white;
+}
+
+.card-body {
+  color: #444;
+}
+
+.list-group-item {
+  line-height: 2.5;
+}
+
+.list-group-item, .form-label{
+  color: rgb(197, 175, 47);
+  font-weight: 1000;
+}
+
+#inventory-list {
+  padding-left: 0px;
+}
+
+#item-list {
+  padding: 0%;
+}
+
+/*========================================================================
+Modal Styling
+*=======================================================================*/
+
+.jumbotron {
+  background: rgba(0,0,0,0);
+}
+
+.modal {
+  color: black;
+}
+
+hr {
+  background-color: #fff !important;
+}
+
+.lead {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.userId h2, .header-wrap h1 {
+  text-transform: capitalize;
+}
+
+#logout-modal, #login-modal, #register-modal {
+  color: rgb(197, 175, 47);
+}
+/*========================================================================
+Nav-Bar Style
+*=======================================================================*/
+
+nav {
+  font-family: 'MedievalSharp', cursive;
+  color: rgb(197, 175, 47);
+}
+
+.navbar-brand {
+  color: rgb(197, 175, 47);
+}
+
+/*========================================================================
+Element Hiding
+*=======================================================================*/
+
+.hidden {
+  visibility: hidden;
+}
+
+
+.remove {
+  display: none;
+ }
+
+/*========================================================================
+Error Messages
+*=======================================================================*/
+
+#update-err-msg,
+#login-err-msg,
+#create-err-msg,
+.validation-err {
+  color: red !important;
 }
 
