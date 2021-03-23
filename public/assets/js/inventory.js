@@ -84,6 +84,14 @@ const loadSelectedChar = () => {
   selectedChar = JSON.parse(sessionStorage.getItem('CharId'));
 };
 
+const clearItemData = () => {
+  selectedItem = 0;
+  $('#itemDetails').addClass('hidden');
+  itemName.empty();
+  itemDesc.empty();
+  itemQuant.empty();
+};
+
 // On Increment click, add 1 to the quantity
 $('#inc-quantity').click(() => {
   let x = itemQuant.val();
@@ -113,8 +121,12 @@ $('#quantity-form').submit(e => {
 $('#remove-item').click(e => {
   e.preventDefault();
   API.deleteInventory(selectedItem)
-    .then(refreshInvList);
+    .then(() => {
+      clearItemData();
+      refreshInvList();
+    });
 });
+
 // Validate item quantity on value change
 itemQuant.change(() => {
   const val = parseInt(itemQuant.val());
