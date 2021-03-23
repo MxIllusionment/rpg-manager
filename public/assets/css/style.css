@@ -67,6 +67,7 @@ Icon and Button Styling
 
   background-color: rgba(197, 175, 47, 0.295) !important;
   color: #111 !important;
+}
 
 .bs-tooltip-bottom {
   top: 30px !important;
