@@ -22,6 +22,12 @@ const API = {
       type: 'PUT',
       data: { quantity }
     });
+  },
+  deleteInventory: function (itemId) {
+    return $.ajax({
+      url: `api/characters/${selectedChar}/inventory/${itemId}`,
+      type: 'DELETE'
+    });
   }
 };
 
@@ -103,6 +109,12 @@ $('#quantity-form').submit(e => {
     .then(refreshInvList);
 });
 
+// Remove Item
+$('#remove-item').click(e => {
+  e.preventDefault();
+  API.deleteInventory(selectedItem)
+    .then(refreshInvList);
+});
 // Validate item quantity on value change
 itemQuant.change(() => {
   const val = parseInt(itemQuant.val());
