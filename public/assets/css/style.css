@@ -64,9 +64,9 @@ Icon and Button Styling
 .selected-char-btn,
 .selected-item-btn,
 .selected-inv-btn {
-  background-color: rgba(197, 175, 47, 0.295);
-  color: #111;
-}
+
+  background-color: rgba(197, 175, 47, 0.295) !important;
+  color: #111 !important;
 
 .bs-tooltip-bottom {
   top: 30px !important;
