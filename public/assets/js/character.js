@@ -5,6 +5,7 @@ const characterGame = $('#character-game');
 const characterDesc = $('#character-desc');
 
 let characterData;
+let selectedChar;
 
 // The API object contains methods for each kind of request we'll make
 const API = {
@@ -12,6 +13,12 @@ const API = {
     return $.ajax({
       url: 'api/characters',
       type: 'GET'
+    });
+  },
+  deleteCharacter: function () {
+    return $.ajax({
+      url: `api/characters/${selectedChar}`,
+      type: 'DELETE'
     });
   }
 };
@@ -53,6 +60,7 @@ const selectCharacter = li => {
     characterName.text(characterData[index].name);
     characterGame.text(characterData[index].game);
     characterDesc.text(decodeURI(characterData[index].description));
+    selectedChar = characterData[index].id
   } else {
     characterName.empty();
     characterGame.empty();
@@ -77,6 +85,13 @@ const loadCurrentCharacter = () => {
 // On Create Character click, clear the character ID
 $('#create-character').click(() => {
   sessionStorage.removeItem('CharId');
+});
+
+//Remove Character
+$('#remove-char').click(e => {
+  e.preventDefault();
+  API.deleteCharacter()
+    .then(refreshCharacterList);
 });
 
 $(function () {
