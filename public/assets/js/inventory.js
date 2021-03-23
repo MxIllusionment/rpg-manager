@@ -4,6 +4,8 @@ const itemName = $('#item-name');
 const itemDesc = $('#item-desc');
 const itemQuant = $('#item-quantity');
 
+const MAX_QUANTITY = 9999;
+
 let itemData;
 let selectedChar;
 let selectedItem;
@@ -69,13 +71,12 @@ const selectItem = li => {
   if (itemData.length > 0) {
     selectedItem = itemData[index].id;
     $('#itemDetails').removeClass('hidden');
+    $('#remove-item').removeClass('hidden');
     itemName.text(itemData[index].name);
     itemDesc.text(decodeURI(itemData[index].description));
     itemQuant.val(itemData[index].Inventory.quantity);
   } else {
-    $('#itemDetails').addClass('hidden');
-    itemName.empty();
-    itemDesc.empty();
+    clearItemData();
   }
 };
 
@@ -87,6 +88,7 @@ const loadSelectedChar = () => {
 const clearItemData = () => {
   selectedItem = 0;
   $('#itemDetails').addClass('hidden');
+  $('#remove-item').addClass('hidden');
   itemName.empty();
   itemDesc.empty();
   itemQuant.empty();
@@ -95,7 +97,7 @@ const clearItemData = () => {
 // On Increment click, add 1 to the quantity
 $('#inc-quantity').click(() => {
   let x = itemQuant.val();
-  if (x < 99) {
+  if (x < MAX_QUANTITY) {
     x++;
     itemQuant.val(x);
   }
@@ -132,8 +134,8 @@ itemQuant.change(() => {
   const val = parseInt(itemQuant.val());
   if (isNaN(val)) {
     itemQuant.val(0);
-  } else if (val > 99) {
-    itemQuant.val(99);
+  } else if (val > MAX_QUANTITY) {
+    itemQuant.val(MAX_QUANTITY);
   } else if (val < 0) {
     itemQuant.val(0);
   } else {
