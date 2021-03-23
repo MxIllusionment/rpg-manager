@@ -56,6 +56,7 @@ const selectCharacter = li => {
   li.addClass('selected-char-btn');
 
   $('#charDetails').removeClass('hidden');
+  $('#remove-char').removeClass('hidden');
   characterName.text(characterData[index].name);
   characterGame.text(characterData[index].game);
   characterDesc.text(decodeURI(characterData[index].description));
@@ -65,6 +66,7 @@ const selectCharacter = li => {
 const clearCharData = () => {
   selectedChar = 0;
   $('#charDetails').addClass('hidden');
+  $('#remove-char').addClass('hidden');
   characterName.empty();
   characterGame.empty();
   characterDesc.empty();

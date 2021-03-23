@@ -69,13 +69,12 @@ const selectItem = li => {
   if (itemData.length > 0) {
     selectedItem = itemData[index].id;
     $('#itemDetails').removeClass('hidden');
+    $('#remove-item').removeClass('hidden');
     itemName.text(itemData[index].name);
     itemDesc.text(decodeURI(itemData[index].description));
     itemQuant.val(itemData[index].Inventory.quantity);
   } else {
-    $('#itemDetails').addClass('hidden');
-    itemName.empty();
-    itemDesc.empty();
+    clearItemData();
   }
 };
 
@@ -87,6 +86,7 @@ const loadSelectedChar = () => {
 const clearItemData = () => {
   selectedItem = 0;
   $('#itemDetails').addClass('hidden');
+  $('#remove-item').addClass('hidden');
   itemName.empty();
   itemDesc.empty();
   itemQuant.empty();
