@@ -61,10 +61,10 @@ This application has been deployed on Heroku at https://p2-rpg-manager.herokuapp
 This application is covered under the **ISC** license. More info can be found here: [ISC](https://opensource.org/licenses/ISC)
 
 ## Contributors:
-(Tarek Behairy)[https://github.com/Tarekbe55] - Front-end design and styling
-(Monica Hill)[https://github.com/acinom813] - Front-end design
-(Steven Israel)[https://github.com/malenchite] - Back-end, routing, API, art
-(Matthew Randolph)[https://github.com/RobeandHat] - Back-end, front-end, styling
+* [Tarek Behairy](https://github.com/Tarekbe55) - Front-end design & JS and styling  
+* [Monica Hill](https://github.com/acinom813) - Front-end design & JS
+* [Steven Israel](https://github.com/malenchite) - Back-end, front-end JS, routing, API, art, QA
+* [Matthew Randolph](https://github.com/RobeandHat) - Back-end, front-end, styling
 
 ## Credits
 Starter code for server.js and user authentication provided as part of a project for the UNC Chapel Hill Coding Bootcamp.
