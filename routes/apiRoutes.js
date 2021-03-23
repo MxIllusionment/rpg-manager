@@ -3,7 +3,6 @@ const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 module.exports = (passport, db) => {
   const AuthController = require('../controllers/authController')(passport, db);
-  const AppController = require('../controllers/appController')(db);
   const CharController = require('../controllers/charController')(db);
   const ItemController = require('../controllers/itemController')(db);
   const inventoryController = require('../controllers/inventoryController')(db);
@@ -15,10 +14,6 @@ module.exports = (passport, db) => {
   router.put('/user/:id', ensureAuthenticated, AuthController.updateUser);
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
-
-  router.get('/examples', AppController.getExamples);
-  router.post('/examples', AppController.createExample);
-  router.delete('/examples/:id', AppController.deleteExample);
 
   // Character Routes
   router.get('/characters', CharController.getCharacters);
