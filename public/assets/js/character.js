@@ -55,17 +55,20 @@ const selectCharacter = li => {
   $('.character-btn').removeClass('selected-char-btn');
   li.addClass('selected-char-btn');
 
-  if (characterData.length > 0) {
-    $('#charDetails').removeClass('hidden');
-    characterName.text(characterData[index].name);
-    characterGame.text(characterData[index].game);
-    characterDesc.text(decodeURI(characterData[index].description));
-    selectedChar = characterData[index].id;
-  } else {
-    characterName.empty();
-    characterGame.empty();
-    characterDesc.empty();
-  }
+  $('#charDetails').removeClass('hidden');
+  characterName.text(characterData[index].name);
+  characterGame.text(characterData[index].game);
+  characterDesc.text(decodeURI(characterData[index].description));
+  selectedChar = characterData[index].id;
+};
+
+const clearCharData = () => {
+  selectedChar = 0;
+  $('#charDetails').addClass('hidden');
+  characterName.empty();
+  characterGame.empty();
+  characterDesc.empty();
+  sessionStorage.removeItem('CharId');
 };
 
 // Loads the current character from the session
@@ -76,7 +79,7 @@ const loadCurrentCharacter = () => {
     // Find character entry in data
     const li = characterList.find(`[data-id=${currentChar}]`);
 
-    if (li !== -1) {
+    if (li) {
       selectCharacter(li);
     }
   }
@@ -91,7 +94,10 @@ $('#create-character').click(() => {
 $('#remove-char').click(e => {
   e.preventDefault();
   API.deleteCharacter()
-    .then(refreshCharacterList);
+    .then(() => {
+      clearCharData();
+      refreshCharacterList();
+    });
 });
 
 $(function () {
