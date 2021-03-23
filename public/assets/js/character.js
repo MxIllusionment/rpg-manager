@@ -60,7 +60,7 @@ const selectCharacter = li => {
     characterName.text(characterData[index].name);
     characterGame.text(characterData[index].game);
     characterDesc.text(decodeURI(characterData[index].description));
-    selectedChar = characterData[index].id
+    selectedChar = characterData[index].id;
   } else {
     characterName.empty();
     characterGame.empty();
@@ -87,7 +87,7 @@ $('#create-character').click(() => {
   sessionStorage.removeItem('CharId');
 });
 
-//Remove Character
+// Remove Character
 $('#remove-char').click(e => {
   e.preventDefault();
   API.deleteCharacter()
